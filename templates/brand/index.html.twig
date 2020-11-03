@@ -3,35 +3,42 @@
 {% block title %}Brand index{% endblock %}
 
 {% block body %}
-    <h1>Brand index</h1>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <h1>Brand index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Deleted_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for brand in brands %}
-            <tr>
-                <td>{{ brand.id }}</td>
-                <td>{{ brand.name }}</td>
-                <td>{{ brand.deletedAt ? brand.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('brand_show', {'id': brand.id}) }}">show</a>
-                    <a href="{{ path('brand_edit', {'id': brand.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>*</th>
+                        <th>Nom</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for brand in brands %}
+                        <tr>
+                            <td>{{ brand.id }}</td>
+                            <td>{{ brand.name }}</td>
+                            <td>
+                                <a href="{{ path('brand_show', {'id': brand.id}) }}">voir</a>
+                                <a href="{{ path('brand_edit', {'id': brand.id}) }}">modifier</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('brand_new') }}">Créer</a>
+            </div>
+        </div>
+    </div>
 
-    <a href="{{ path('brand_new') }}">Create new</a>
+
+
+
 {% endblock %}

@@ -11,9 +11,11 @@
                     <ul class="list-unstyled">
 
                         {% if is_granted('ROLE_ADMIN') %}
-                        <li><a href="{{ path('brand_index') }}" class="text-white">Brand</a></li>
-                        <li><a href="#" class="text-white">Link 2</a></li>
-                        <li><a href="#" class="text-white">Link 3</a></li>
+                            <li><a href="{{ path('brand_index') }}" class="text-white">Marques</a></li>
+                            <li><a href="{{ path('category_index') }}" class="text-white">Catégorie</a></li>
+                            <li><a href="{{ path('sub_category_index') }}" class="text-white">Sous-catégorie</a></li>
+                            <li><a href="{{ path('user_index') }}" class="text-white">Utilisateurs</a></li>
+                            <li><a href="{{ path('product_index') }}" class="text-white">Produits</a></li>
                         {% else %}
 
                         {% endif %}

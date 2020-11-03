@@ -21,7 +21,7 @@ class BrandController extends AbstractController
     public function index(BrandRepository $brandRepository): Response
     {
         return $this->render('brand/index.html.twig', [
-            'brands' => $brandRepository->findAll(),
+            'brands' => $brandRepository->findByDeletedAt(),
         ]);
     }
 
@@ -85,7 +85,8 @@ class BrandController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$brand->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($brand);
+            $brand->setDeletedAt(new \DateTime());
+            $entityManager->persist($brand);
             $entityManager->flush();
         }
 

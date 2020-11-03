@@ -27,9 +27,8 @@ class BrandRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('b')
             ->andWhere('b.deleted_at is NULL')
             ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
 }
