@@ -46,6 +46,20 @@ class ProductController extends AbstractController
                 $product->setPictureFirst($pictureFirstFileName);
             }
 
+            /** @var UploadedFile $brochureFile */
+            $pictureFirstFile = $form->get('pictureSecond')->getData();
+            if ($pictureFirstFile) {
+                $pictureFirstFileName = $fileUploader->upload($pictureFirstFile);
+                $product->setPictureSecond($pictureFirstFileName);
+            }
+
+            /** @var UploadedFile $brochureFile */
+            $pictureFirstFile = $form->get('pictureThird')->getData();
+            if ($pictureFirstFile) {
+                $pictureFirstFileName = $fileUploader->upload($pictureFirstFile);
+                $product->setPictureThird($pictureFirstFileName);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();

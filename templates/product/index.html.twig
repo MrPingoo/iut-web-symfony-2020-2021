@@ -29,8 +29,8 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td><img class="img-thumbnail" src="{{ asset('uploads/' ~ product.pictureFirst) }}"/></td>
-                <td>{{ product.pictureSecond }}</td>
-                <td>{{ product.pictureThird }}</td>
+                <td><img class="img-thumbnail" src="{{ asset('uploads/' ~ product.pictureSecond) }}"/></td>
+                <td><img class="img-thumbnail" src="{{ asset('uploads/' ~ product.pictureThird) }}"/></td>
                 <td>{{ product.priceHT }}</td>
                 <td>{{ product.priceTTC }}</td>
                 <td>{{ product.cratedAt ? product.cratedAt|date('Y-m-d H:i:s') : '' }}</td>
