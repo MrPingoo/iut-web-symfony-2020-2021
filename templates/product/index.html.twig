@@ -28,7 +28,7 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
-                <td>{{ product.pictureFirst }}</td>
+                <td><img class="img-thumbnail" src="{{ asset('uploads/' ~ product.pictureFirst) }}"/></td>
                 <td>{{ product.pictureSecond }}</td>
                 <td>{{ product.pictureThird }}</td>
                 <td>{{ product.priceHT }}</td>
