@@ -13,7 +13,6 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('deletedAt')
         ;
     }
 
