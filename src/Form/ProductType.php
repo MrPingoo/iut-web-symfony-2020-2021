@@ -7,6 +7,7 @@ use App\Entity\Product;
 use App\Entity\SubCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,9 +18,15 @@ class ProductType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('pictureFirst')
-            ->add('pictureSecond')
-            ->add('pictureThird')
+            ->add('pictureFirst',  FileType::class, [
+                'mapped' => false
+            ])
+            ->add('pictureSecond',  FileType::class, [
+                'mapped' => false
+            ])
+            ->add('pictureThird',  FileType::class, [
+                'mapped' => false
+            ])
             ->add('priceHT')
             ->add('priceTTC')
             ->add('brand', EntityType::class, [

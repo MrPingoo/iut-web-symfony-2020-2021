@@ -25,3 +25,5 @@ composer.phar
 phpunit.xml.dist
 symfony.lock
 tests/
+/public/uploads/*
+!/public/uploads/.gitkeep
