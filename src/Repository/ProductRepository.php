@@ -22,14 +22,23 @@ class ProductRepository extends ServiceEntityRepository
     /**
      * @return Product[] Returns an array of Brand objects
      */
-    public function findByDeletedAt()
+    public function findByDeletedAt($sort = null)
     {
-        return $this->createQueryBuilder('p')
+        $q = $this->createQueryBuilder('p')
             ->andWhere('p.deletedAt is NULL')
-            ->orderBy('p.id', 'ASC')
-            ->getQuery()
-            ->getResult()
             ;
+
+        if (!empty($sort)) {
+            $q
+                ->orderBy($sort, 'ASC');
+        } else {
+            $q
+                ->orderBy('p.id', 'ASC');
+        }
+
+        return $q
+            ->getQuery()
+            ->getResult();
     }
 
     // /**
