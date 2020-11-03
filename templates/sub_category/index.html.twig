@@ -6,7 +6,7 @@
     <h1>SubCategory index</h1>
 
     <table class="table">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -21,8 +21,8 @@
                 <td>{{ sub_category.name }}</td>
                 <td>{{ sub_category.deletedAt ? sub_category.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('sub_category_show', {'id': sub_category.id}) }}">show</a>
-                    <a href="{{ path('sub_category_edit', {'id': sub_category.id}) }}">edit</a>
+                    <a href="{{ path('sub_category_show', {'id': sub_category.id}) }}"><i class="eye icon"></i></a>
+                    <a href="{{ path('sub_category_edit', {'id': sub_category.id}) }}"><i class="edit icon"></i></a>
                 </td>
             </tr>
         {% else %}

@@ -19,7 +19,13 @@
         {% endblock %}
 
         <main role="main">
-            {% block body %}{% endblock %}
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="row">
+                        {% block body %}{% endblock %}
+                    </div>
+                </div>
+            </div>
         </main>
 
         {% block footer %}

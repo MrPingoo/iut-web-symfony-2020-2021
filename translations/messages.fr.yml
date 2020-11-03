@@ -1,0 +1,7 @@
+roles:
+  ROLE_ADMIN: Admin
+  ROLE_USER: Client
+
+form:
+  category:
+    label: "Mon premier label"

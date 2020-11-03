@@ -3,46 +3,37 @@
 {% block title %}Brand index{% endblock %}
 
 {% block body %}
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <h1>Brand index</h1>
+    <h1>Brand index</h1>
 
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>*</th>
-                        <th>Nom</th>
-                        <th>actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for brand in brands %}
-                        <tr>
-                            <td>{{ brand.id }}</td>
-                            <td>{{ brand.name }}</td>
-                            <td>
-                                <a href="{{ path('brand_show', {'id': brand.id}) }}">
-                                    <i class="eye icon"></i>
-                                </a>
-                                <a href="{{ path('brand_edit', {'id': brand.id}) }}">
-                                    <i class="edit icon"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="4">no records found</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                <a href="{{ path('brand_new') }}">Créer</a>
-            </div>
-        </div>
-    </div>
-
-
-
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>*</th>
+            <th>Nom</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for brand in brands %}
+            <tr>
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.name }}</td>
+                <td>
+                    <a href="{{ path('brand_show', {'id': brand.id}) }}">
+                        <i class="eye icon"></i>
+                    </a>
+                    <a href="{{ path('brand_edit', {'id': brand.id}) }}">
+                        <i class="edit icon"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('brand_new') }}">Créer</a>
 
 {% endblock %}
