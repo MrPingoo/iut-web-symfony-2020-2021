@@ -33,10 +33,32 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('pictureSecond',  FileType::class, [
-                'mapped' => false
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Error',
+                    ])
+                ]
             ])
             ->add('pictureThird',  FileType::class, [
-                'mapped' => false
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Error',
+                    ])
+                ]
             ])
             ->add('priceHT')
             ->add('priceTTC')
