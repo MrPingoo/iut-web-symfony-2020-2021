@@ -10,6 +10,13 @@
                     <h4 class="text-white">Menu</h4>
                     <ul class="list-unstyled">
 
+                        {% if app.user %}
+                            <li><a href="{{ path('app_logout') }}" class="text-white">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ path('app_register') }}" class="text-white">Créer un compte</a></li>
+                            <li><a href="{{ path('app_login') }}" class="text-white">Se connecter</a></li>
+                        {% endif %}
+
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="{{ path('brand_index') }}" class="text-white">Marques</a></li>
                             <li><a href="{{ path('category_index') }}" class="text-white">Catégorie</a></li>
