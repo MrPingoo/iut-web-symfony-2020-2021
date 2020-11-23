@@ -10,7 +10,6 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Description</th>
                 <th>PictureFirst</th>
                 <th>PictureSecond</th>
                 <th>PictureThird</th>
@@ -27,7 +26,6 @@
             <tr>
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
                 <td>{% if product.pictureFirst %}<img class="img-thumbnail" src="{{ asset('uploads/' ~ product.pictureFirst) }}"/>{% endif %}</td>
                 <td>{% if product.pictureSecond %}<img class="img-thumbnail" src="{{ asset('uploads/' ~ product.pictureSecond) }}"/>{% endif %}</td>
                 <td>{% if product.pictureThird %}<img class="img-thumbnail" src="{{ asset('uploads/' ~ product.pictureThird) }}"/>{% endif %}</td>
