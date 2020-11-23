@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Brand;
+use App\Entity\Item;
 use App\Entity\Order;
 use App\Entity\Product;
 use App\Entity\User;
@@ -52,13 +53,23 @@ class DefaultController extends AbstractController
      */
     public function addToCart(Product $product)
     {
+        // 0 = panier
+        // 1 = payé
+        // 2 = livré
+
         /** @var User $user */
         $user = $this->getUser();
         $command = $user->getOrdersByStatus(0);
 
         if ($command) {
+            $item = new Item();
+            $item->setCommand($command);
+            $item->setProduct($product);
+            $item->setQuantity(1);
 
-            // ajouter l'item au panier
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($item);
+            $em->flush();
         } else {
             $command = new Order();
             $command->setCratedAt(new \DateTime());
@@ -70,9 +81,25 @@ class DefaultController extends AbstractController
             $em->persist($command);
             $em->flush();
 
-            // ajouter l'item au panier
+            $item = new Item();
+            $item->setCommand($command);
+            $item->setProduct($product);
+            $item->setQuantity(1);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($item);
+            $em->flush();
         }
 
         return $this->redirectToRoute('front_default');
+    }
+
+
+    /**
+     * @Route("/commands", name="front_commands")
+     */
+    public function commands(): Response
+    {
+        return $this->render('front/commands.html.twig');
     }
 }

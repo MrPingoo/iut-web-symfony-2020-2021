@@ -1,0 +1,28 @@
+{% extends 'base_front.html.twig' %}
+
+{% block title %}E-commerce - Ma page{% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Date</td>
+                    <td>Articles</td>
+                    <td>Statut</td>
+                </tr>
+            </thead>
+            {% for order in app.user.orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.cratedAt|date('d/m/Y H:i') }}</td>
+                    <td>{{ order.items|length }}</td>
+                    <td>{{ order.status  }}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
