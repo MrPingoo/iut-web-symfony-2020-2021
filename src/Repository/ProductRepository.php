@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,11 +48,27 @@ class ProductRepository extends ServiceEntityRepository
     public function findByArgs($args)
     {
         $q = $this->createQueryBuilder('p')
+            ->join('p.categories', 'c')
             ->andWhere('p.deletedAt is NULL')
         ;
 
-        // LIKE %%
-        // Récupérer les produits par catégories
+        if (isset($args['q']) && !empty($args['q'])) {
+            $q->andWhere('p.name LIKE :q OR p.description LIKE :q')
+                ->setParameter('q', '%' . $args['q'] . '%');
+        }
+
+        if (isset($args['categories']) && !empty($args['categories'])) {
+            $cats = [];
+
+            /** @var Category $cat */
+            foreach ($args['categories'] as $cat) {
+                $cats[] = $cat->getId();
+            }
+            if (!empty($cats)) {
+                $q->andWhere('c.category IN (:cats)')
+                    ->setParameter('cats', $cats);
+            }
+        }
 
         $q
             ->orderBy('p.id', 'ASC');

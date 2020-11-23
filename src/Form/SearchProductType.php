@@ -20,11 +20,12 @@ class SearchProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('q')
+            ->add('q', TextType::class, ['required' => false])
             ->add('categories', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
-                'multiple' => true
+                'multiple' => true,
+                'required' => false
             ])
         ;
     }
