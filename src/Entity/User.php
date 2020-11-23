@@ -207,4 +207,14 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getOrdersByStatus($status)
+    {
+        foreach ($this->orders as $order) {
+            if ($order->getStatus() == $status) {
+                return $order;
+            }
+        }
+        return null;
+    }
 }

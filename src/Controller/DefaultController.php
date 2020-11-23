@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Brand;
+use App\Entity\Order;
 use App\Entity\Product;
+use App\Entity\User;
 use App\Form\SearchProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,5 +45,34 @@ class DefaultController extends AbstractController
         return $this->render('front/article.html.twig', [
             'product' => $product
         ]);
+    }
+
+    /**
+     * @Route("/{id}/add-to-cart", name="front_add_to_cart")
+     */
+    public function addToCart(Product $product)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $command = $user->getOrdersByStatus(0);
+
+        if ($command) {
+
+            // ajouter l'item au panier
+        } else {
+            $command = new Order();
+            $command->setCratedAt(new \DateTime());
+            $command->setUpdatedAt(new \DateTime());
+            $command->setUser($user);
+            $command->setStatus(0);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($command);
+            $em->flush();
+
+            // ajouter l'item au panier
+        }
+
+        return $this->redirectToRoute('front_default');
     }
 }
