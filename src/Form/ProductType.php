@@ -8,6 +8,8 @@ use App\Entity\SubCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -18,7 +20,9 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
+            ->add('description', TextareaType::class, [
+                'attr' => ['class' => 'ckeditor', 'rows' => 5, 'cols' => 5]
+            ])
             ->add('pictureFirst',  FileType::class, [
                 'mapped' => false,
                 'constraints' => [

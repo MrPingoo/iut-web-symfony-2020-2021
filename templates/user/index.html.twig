@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-                <td>{% for role in user.roles %}{{ ('roles.' ~ role)|trans }}, {% endfor %}</td>
+                <td>{% for role in user.roles %}{{ ('roles.' ~ role)|trans|capitalize }}, {% endfor %}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>

@@ -9,3 +9,15 @@
 
     <a href="{{ path('product_index') }}">back to list</a>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '.ckeditor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+{% endblock %}
