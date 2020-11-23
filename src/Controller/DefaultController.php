@@ -23,4 +23,14 @@ class DefaultController extends AbstractController
             'products' => $products
         ]);
     }
+
+    /**
+     * @Route("/{id}/article", name="front_article")
+     */
+    public function article(Product $product): Response
+    {
+        return $this->render('front/article.html.twig', [
+            'product' => $product
+        ]);
+    }
 }
