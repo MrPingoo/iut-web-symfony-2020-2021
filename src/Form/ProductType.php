@@ -21,7 +21,8 @@ class ProductType extends AbstractType
         $builder
             ->add('name')
             ->add('description', TextareaType::class, [
-                'attr' => ['class' => 'ckeditor', 'rows' => 5, 'cols' => 5]
+                'attr' => ['class' => 'ckeditor', 'rows' => 5, 'cols' => 5],
+                'required' => false
             ])
             ->add('pictureFirst',  FileType::class, [
                 'mapped' => false,
