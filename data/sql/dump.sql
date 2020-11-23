@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 23, 2020 at 01:08 PM
+-- Generation Time: Nov 23, 2020 at 02:54 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
@@ -31,8 +31,9 @@ CREATE TABLE `brand` (
 --
 
 INSERT INTO `brand` (`id`, `name`, `deleted_at`) VALUES
-(2, 'Apple', '2020-11-03 08:33:59'),
-(3, 'Dell', NULL);
+(2, 'Apple', NULL),
+(3, 'Dell', NULL),
+(4, 'Sony', NULL);
 
 -- --------------------------------------------------------
 
@@ -51,7 +52,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `deleted_at`) VALUES
-(1, 'Informatique', NULL);
+(1, 'Informatique', NULL),
+(2, 'Audio', NULL);
 
 -- --------------------------------------------------------
 
@@ -128,11 +130,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `brand_id`, `name`, `description`, `picture_first`, `picture_second`, `picture_third`, `price_ht`, `price_ttc`, `crated_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 'dsfdfdsf', 'dsdsdsf', 'sdfdsds', 'fdsfdsfdf', 'sdsfdsf', 5, 5, '2020-11-03 09:10:57', NULL, '2020-11-03 11:48:07'),
-(2, 3, 'sdfdsdsfdsf', 'dsffddsfdsf', '400-320-5fa136f0b85ac.png', NULL, NULL, 5, 5, '2020-11-03 10:54:40', NULL, NULL),
-(3, 2, 'xcvxcgfgfgd', 'fgdgfdfgd', '400-320-5fa13ec5b51e8.png', '400-320-5fa13ec5b53e2.png', '400-320-5fa13ec5b5586.png', 5, 5, '2020-11-03 11:28:05', NULL, NULL),
-(4, 2, 'fgfghhgf', 'ghfghfghf', 'Example-5fa13f4acf714.jpeg', 'Example-5fa13f4acf948.jpeg', 'Example-5fa13f4acfb22.jpeg', 5, 5, '2020-11-03 11:30:18', NULL, NULL),
-(5, 2, 'dfgfddfg', 'fgdfgdfdgfgd', 'Example-5fa13fc3403c0.jpeg', NULL, NULL, 5, 5, '2020-11-03 11:32:19', NULL, '2020-11-03 11:36:28');
+(2, 2, 'Macbook PRO 13``', '<p>Vestibulum orci ex, commodo quis mauris ut, molestie dictum est. Aenean sit amet augue at lectus feugiat pulvinar at ac est. Pellentesque molestie odio vel metus fermentum, et pulvinar diam efficitur. Duis tempus varius aliquet. Fusce tempus et lectus quis dignissim. Nulla efficitur urna eget enim ultrices consectetur. Quisque porta a elit a laoreet. Quisque id nisi purus. In hac habitasse platea dictumst. In nec ipsum pretium lacus varius luctus in quis risus. Etiam sed aliquam erat. Ut eget lectus volutpat, venenatis tellus vel, convallis lectus.</p><p>Nam eget felis metus. Pellentesque elit lorem, finibus eu ornare sed, rhoncus in ipsum. Vestibulum efficitur lacus odio, et volutpat justo euismod ut. Ut mauris sapien, laoreet eget risus ac, consectetur lobortis nunc. Vivamus vel odio ex. Fusce ligula nibh, pellentesque dictum imperdiet sit amet, laoreet faucibus orci. Suspendisse at nibh ac ex vulputate pulvinar. Donec vel rutrum sem. Vivamus sed mauris cursus, finibus risus sit amet, interdum nibh. Praesent dapibus dui mauris, ac vestibulum sem commodo at.</p><p>Morbi et congue massa. Sed sit amet malesuada libero. Vestibulum volutpat urna vitae sapien blandit, vel congue neque posuere. Nulla in luctus nunc. Maecenas gravida elementum elit tristique finibus. Vestibulum vel lacinia metus. Phasellus pellentesque ligula commodo nunc ullamcorper, sed cursus neque commodo. Donec a vehicula arcu. Quisque semper massa lorem, non consectetur magna feugiat at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse massa erat, ullamcorper nec ultricies eu, posuere et metus. Sed sed venenatis risus, eget egestas tortor. Proin nisl eros, molestie ut pulvinar ut, congue in nisi. Aenean interdum fermentum consectetur.</p>', 'images.jpeg', 'images.jpeg', 'images.jpeg', 1300, 1500, '2020-11-03 10:54:40', '2020-11-23 14:33:55', NULL),
+(3, 2, 'Mac Mini', '<p>Vestibulum orci ex, commodo quis mauris ut, molestie dictum est. Aenean sit amet augue at lectus feugiat pulvinar at ac est. Pellentesque molestie odio vel metus fermentum, et pulvinar diam efficitur. Duis tempus varius aliquet. Fusce tempus et lectus quis dignissim. Nulla efficitur urna eget enim ultrices consectetur. Quisque porta a elit a laoreet. Quisque id nisi purus. In hac habitasse platea dictumst. In nec ipsum pretium lacus varius luctus in quis risus. Etiam sed aliquam erat. Ut eget lectus volutpat, venenatis tellus vel, convallis lectus.</p><p>Nam eget felis metus. Pellentesque elit lorem, finibus eu ornare sed, rhoncus in ipsum. Vestibulum efficitur lacus odio, et volutpat justo euismod ut. Ut mauris sapien, laoreet eget risus ac, consectetur lobortis nunc. Vivamus vel odio ex. Fusce ligula nibh, pellentesque dictum imperdiet sit amet, laoreet faucibus orci. Suspendisse at nibh ac ex vulputate pulvinar. Donec vel rutrum sem. Vivamus sed mauris cursus, finibus risus sit amet, interdum nibh. Praesent dapibus dui mauris, ac vestibulum sem commodo at.</p><p>Morbi et congue massa. Sed sit amet malesuada libero. Vestibulum volutpat urna vitae sapien blandit, vel congue neque posuere. Nulla in luctus nunc. Maecenas gravida elementum elit tristique finibus. Vestibulum vel lacinia metus. Phasellus pellentesque ligula commodo nunc ullamcorper, sed cursus neque commodo. Donec a vehicula arcu. Quisque semper massa lorem, non consectetur magna feugiat at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse massa erat, ullamcorper nec ultricies eu, posuere et metus. Sed sed venenatis risus, eget egestas tortor. Proin nisl eros, molestie ut pulvinar ut, congue in nisi. Aenean interdum fermentum consectetur.</p>', '400-320-5fa13ec5b51e8.png', '400-320-5fa13ec5b53e2.png', '400-320-5fa13ec5b5586.png', 500, 600, '2020-11-03 11:28:05', '2020-11-23 14:35:46', NULL),
+(4, 4, 'Jabra', '<p><i>Vestibulum orci ex, commodo quis mauris ut, molestie dictum est. Aenean sit amet augue at lectus feugiat pulvinar at ac est. Pellentesque molestie odio vel metus fermentum, et pulvinar diam efficitur. Duis tempus varius aliquet. Fusce tempus et lectus quis dignissim. Nulla efficitur urna eget enim ultrices consectetur. Quisque porta a elit a laoreet. Quisque id nisi purus. In hac habitasse platea dictumst. In nec ipsum pretium lacus varius luctus in quis risus. Etiam sed aliquam erat. Ut eget lectus volutpat, venenatis tellus vel, convallis lectus.</i></p><p>Nam eget felis metus. Pellentesque elit lorem, finibus eu ornare sed, rhoncus in ipsum. Vestibulum efficitur lacus odio, et volutpat justo euismod ut. Ut mauris sapien, laoreet eget risus ac, consectetur lobortis nunc. Vivamus vel odio ex. Fusce ligula nibh, pellentesque dictum imperdiet sit amet, laoreet faucibus orci. Suspendisse at nibh ac ex vulputate pulvinar. Donec vel rutrum sem. Vivamus sed mauris cursus, finibus risus sit amet, interdum nibh. Praesent dapibus dui mauris, ac vestibulum sem commodo at.</p><p>Morbi et congue massa. Sed sit amet malesuada libero. Vestibulum volutpat urna vitae sapien blandit, vel congue neque posuere. Nulla in luctus nunc. Maecenas gravida elementum elit tristique finibus. Vestibulum vel lacinia metus. Phasellus pellentesque ligula commodo nunc ullamcorper, sed cursus neque commodo. Donec a vehicula arcu. Quisque semper massa lorem, non consectetur magna feugiat at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse massa erat, ullamcorper nec ultricies eu, posuere et metus. Sed sed venenatis risus, eget egestas tortor. Proin nisl eros, molestie ut pulvinar ut, congue in nisi. Aenean interdum fermentum consectetur.</p>', 'Example-5fa13f4acf714.jpeg', 'Example-5fa13f4acf948.jpeg', 'Example-5fa13f4acfb22.jpeg', 50, 60, '2020-11-03 11:30:18', '2020-11-23 14:36:20', NULL),
+(5, 2, 'dfgfddfg', 'fgdfgdfdgfgd', 'Example-5fa13fc3403c0.jpeg', NULL, NULL, 5, 5, '2020-11-03 11:32:19', NULL, '2020-11-03 11:36:28'),
+(6, 2, 'Bose', '<p>Vestibulum orci ex, commodo quis mauris ut, molestie dictum est. Aenean sit amet augue at lectus feugiat pulvinar at ac est. Pellentesque molestie odio vel metus fermentum, et pulvinar diam efficitur. Duis tempus varius aliquet. Fusce tempus et lectus quis dignissim. Nulla efficitur urna eget enim ultrices consectetur. Quisque porta a elit a laoreet. Quisque id nisi purus. In hac habitasse platea dictumst. In nec ipsum pretium lacus varius luctus in quis risus. Etiam sed aliquam erat. Ut eget lectus volutpat, venenatis tellus vel, convallis lectus.</p><p>Nam eget felis metus. Pellentesque elit lorem, finibus eu ornare sed, rhoncus in ipsum. Vestibulum efficitur lacus odio, et volutpat justo euismod ut. Ut mauris sapien, laoreet eget risus ac, consectetur lobortis nunc. Vivamus vel odio ex. Fusce ligula nibh, pellentesque dictum imperdiet sit amet, laoreet faucibus orci. Suspendisse at nibh ac ex vulputate pulvinar. Donec vel rutrum sem. Vivamus sed mauris cursus, finibus risus sit amet, interdum nibh. Praesent dapibus dui mauris, ac vestibulum sem commodo at.</p><p>Morbi et congue massa. Sed sit amet malesuada libero. Vestibulum volutpat urna vitae sapien blandit, vel congue neque posuere. Nulla in luctus nunc. Maecenas gravida elementum elit tristique finibus. Vestibulum vel lacinia metus. Phasellus pellentesque ligula commodo nunc ullamcorper, sed cursus neque commodo. Donec a vehicula arcu. Quisque semper massa lorem, non consectetur magna feugiat at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse massa erat, ullamcorper nec ultricies eu, posuere et metus. Sed sed venenatis risus, eget egestas tortor. Proin nisl eros, molestie ut pulvinar ut, congue in nisi. Aenean interdum fermentum consectetur.</p>', '400-320-5fbbb9a9ad7f9.png', '400-320-5fbbb9a9ada0f.png', '400-320-5fbbb9a9adba7.png', 5600, 8500, '2020-11-23 13:31:21', '2020-11-23 14:44:57', NULL),
+(7, 2, 'test', '<p>Vestibulum orci ex, commodo quis mauris ut, molestie dictum est. Aenean sit amet augue at lectus feugiat pulvinar at ac est. Pellentesque molestie odio vel metus fermentum, et pulvinar diam efficitur. Duis tempus varius aliquet. Fusce tempus et lectus quis dignissim. Nulla efficitur urna eget enim ultrices consectetur. Quisque porta a elit a laoreet. Quisque id nisi purus. In hac habitasse platea dictumst. In nec ipsum pretium lacus varius luctus in quis risus. Etiam sed aliquam erat. Ut eget lectus volutpat, venenatis tellus vel, convallis lectus.</p><p>Nam eget felis metus. Pellentesque elit lorem, finibus eu ornare sed, rhoncus in ipsum. Vestibulum efficitur lacus odio, et volutpat justo euismod ut. Ut mauris sapien, laoreet eget risus ac, consectetur lobortis nunc. Vivamus vel odio ex. Fusce ligula nibh, pellentesque dictum imperdiet sit amet, laoreet faucibus orci. Suspendisse at nibh ac ex vulputate pulvinar. Donec vel rutrum sem. Vivamus sed mauris cursus, finibus risus sit amet, interdum nibh. Praesent dapibus dui mauris, ac vestibulum sem commodo at.</p><p>Morbi et congue massa. Sed sit amet malesuada libero. Vestibulum volutpat urna vitae sapien blandit, vel congue neque posuere. Nulla in luctus nunc. Maecenas gravida elementum elit tristique finibus. Vestibulum vel lacinia metus. Phasellus pellentesque ligula commodo nunc ullamcorper, sed cursus neque commodo. Donec a vehicula arcu. Quisque semper massa lorem, non consectetur magna feugiat at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse massa erat, ullamcorper nec ultricies eu, posuere et metus. Sed sed venenatis risus, eget egestas tortor. Proin nisl eros, molestie ut pulvinar ut, congue in nisi. Aenean interdum fermentum consectetur.</p>', '400-320-5fbbba8fe00e9.png', NULL, NULL, 5, 6, '2020-11-23 13:35:11', NULL, '2020-11-23 14:36:30');
 
 -- --------------------------------------------------------
 
@@ -150,11 +153,13 @@ CREATE TABLE `product_sub_category` (
 --
 
 INSERT INTO `product_sub_category` (`product_id`, `sub_category_id`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
+(2, 2),
+(3, 2),
 (4, 1),
-(5, 1);
+(5, 1),
+(6, 1),
+(6, 2),
+(7, 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +192,8 @@ CREATE TABLE `sub_category` (
 --
 
 INSERT INTO `sub_category` (`id`, `category_id`, `name`, `deleted_at`) VALUES
-(1, 1, 'Son', NULL);
+(1, 2, 'Son', NULL),
+(2, 1, 'PC', NULL);
 
 -- --------------------------------------------------------
 
@@ -298,13 +304,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `command`
@@ -322,7 +328,7 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `stock`
@@ -334,7 +340,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `sub_category`
 --
 ALTER TABLE `sub_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
