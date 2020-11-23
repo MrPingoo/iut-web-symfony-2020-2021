@@ -41,6 +41,26 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @return Product[] Returns an array of Brand objects
+     */
+    public function findByArgs($args)
+    {
+        $q = $this->createQueryBuilder('p')
+            ->andWhere('p.deletedAt is NULL')
+        ;
+
+        // LIKE %%
+        // Récupérer les produits par catégories
+
+        $q
+            ->orderBy('p.id', 'ASC');
+
+        return $q
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */
