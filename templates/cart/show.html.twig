@@ -17,16 +17,18 @@
                 </th>
                 </thead>
                 <tbody>
-                {% for article in command.items %}
-                    <tr>
-                        <td>
-                            {{ article.product.name }}
-                        </td>
-                        <td>
-                            {{ article.quantity }}
-                        </td>
-                    </tr>
-                {% endfor %}
+                {% if command %}
+                    {% for article in command.items %}
+                        <tr>
+                            <td>
+                                {{ article.product.name }}
+                            </td>
+                            <td>
+                                {{ article.quantity }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
                 </tbody>
             </table>
         </div>
