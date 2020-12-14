@@ -34,4 +34,14 @@ class CartController extends AbstractController
 
         return JsonResponse::create(['data' => true]);
     }
+
+    /**
+     * @Route("/cart/show", name="cart.show")
+     */
+    public function show(Request $request)
+    {
+        $command = $this->getUser()->getOrdersByStatus(0);
+
+        return $this->render('cart/show.html.twig', ['command' => $command]);
+    }
 }

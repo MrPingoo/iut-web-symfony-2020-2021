@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+    <th>
+        Nom
+    </th>
+    <th>
+        Qte
+    </th>
+    </thead>
+    <tbody>
+        {% for article in command.items %}
+            <tr>
+                <td>
+                    {{ article.product.name }}
+                </td>
+                <td>
+                    {{ article.quantity }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-default">Voir le panier</a>
