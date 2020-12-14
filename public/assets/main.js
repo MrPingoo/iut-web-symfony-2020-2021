@@ -21,9 +21,30 @@ function addToCart() {
     });
 }
 
+function showCart() {
+    var pathApi = '/iut.localhost/public/cart/show';
+    var request = $.ajax({
+        url: pathApi,
+        method: "GET",
+        dataType: "html"
+    });
+
+    request.done(function( data ) {
+        $('#exampleModal').html(data);
+        $('#exampleModal').modal('show');
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+        console.log( "Request failed: " + textStatus );
+    });
+}
+
 $( document ).ready(function() {
     $(document).on('click', '.addToCart', function() {
         addToCart();
+    });
+    $('.cart-btn').mouseover(function() {
+        showCart();
     });
 });
 
@@ -102,3 +123,4 @@ $(".input-number").keydown(function (e) {
         e.preventDefault();
     }
 });
+

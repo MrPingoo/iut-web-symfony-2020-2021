@@ -1,0 +1,13 @@
+.cart-hover {
+    padding: 15px 0 5px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.15);
+    position: absolute;
+    bottom: 25px;
+    left: 30px;
+    width: 240px;
+    margin: 0 -8px;
+    z-index: 100;
+    background: #fff;
+    list-style: none;
+}
