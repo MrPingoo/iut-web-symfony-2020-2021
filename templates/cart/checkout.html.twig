@@ -60,6 +60,6 @@
     </table>
 
     <form action="" method="post">
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ publishable_key }}" data-description="Payer" data-amount="{{ amount }}" data-locale="auto"></script>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ publishable_key }}" data-description="Payer" data-amount="{{ amount }}" data-currency="eur" data-locale="auto"></script>
     </form>
 {% endblock %}
