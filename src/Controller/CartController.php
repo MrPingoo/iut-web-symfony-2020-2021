@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class CartController
+ * @package App\Controller
+ */
 class CartController extends AbstractController
 {
     /**
@@ -43,5 +47,31 @@ class CartController extends AbstractController
         $command = $this->getUser()->getOrdersByStatus(0);
 
         return $this->render('cart/show.html.twig', ['command' => $command]);
+    }
+
+    /**
+     * @Route("/cart/checkout", name="cart.checkout")
+     */
+    public function checkout(Request $request)
+    {
+        \Stripe\Stripe::setApiKey('sk_test_XzLnJG2tgMhnzYAdietJqW1f');
+
+        $command = $this->getUser()->getOrdersByStatus(0);
+
+        // Variable POST
+
+        return $this->render('cart/checkout.html.twig', ['command' => $command, "publishable_key" => "pk_test_NEDk9nXXSYacB5siSbRWziMo", 'amount' => $command->totalTTC() * 100 ]);
+    }
+
+    /**
+     * @Route("/cart/del/{id}", name="cart.checkout.delete")
+     */
+    public function del(Request $request, Item $item)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($item);
+        $em->flush();
+
+        return $this->redirectToRoute('cart.checkout');
     }
 }

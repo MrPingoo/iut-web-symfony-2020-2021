@@ -134,4 +134,24 @@ class Order
 
         return $this;
     }
+
+    public function totalTTC() {
+        $amount = 0;
+
+        foreach ($this->items as $item) {
+            $amount += $item->getProduct()->getPriceTTC() * $item->getQuantity();
+        }
+
+        return $amount;
+    }
+
+    public function totalHT() {
+        $amount = 0;
+
+        foreach ($this->items as $item) {
+            $amount += $item->getProduct()->getPriceHT() * $item->getQuantity();
+        }
+
+        return $amount;
+    }
 }

@@ -1,0 +1,65 @@
+{% extends 'base_front.html.twig' %}
+
+{% block body %}
+    <h1>Mon panier</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+                Qte
+            </th>
+            <th>
+                €
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in command.items %}
+            <tr>
+                <td>
+                    {{ article.product.name }}
+                </td>
+                <td>
+                    {{ article.quantity }}
+                </td>
+                <td>
+                    {{ article.product.priceTTC }}
+                </td>
+                <td>
+                    <a href="{{ path('cart.checkout.delete', {'id': article.id}) }}"><i class="trash icon"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                Total TTC : {{ command.totalTTC }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                Total HT : {{ command.totalHT }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form action="" method="post">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ publishable_key }}" data-description="Payer" data-amount="{{ amount }}" data-locale="auto"></script>
+    </form>
+{% endblock %}
