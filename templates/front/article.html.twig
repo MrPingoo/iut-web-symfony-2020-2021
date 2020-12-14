@@ -8,6 +8,7 @@
         {% for c in product.categories %}
             <h2>{{ c.name }}</h2>
         {% endfor %}
+        <button class="addToCart" data-id="{{ product.id }}">Ajouter</button>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="width:100%; height: 200px !important;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
