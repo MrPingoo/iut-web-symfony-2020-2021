@@ -42,10 +42,12 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="btn btn-success btn-sm ml-2 cart-btn" href="#">
-                    <i class="fa fa-shopping-cart"></i> Panier
-                    <!--<span class="badge badge-light">3</span>-->
-                </a>
+                {% if app.user %}
+                    <a class="btn btn-success btn-sm ml-2 cart-btn" href="#">
+                        <i class="fa fa-shopping-cart"></i> Panier
+                        <!--<span class="badge badge-light">3</span>-->
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
