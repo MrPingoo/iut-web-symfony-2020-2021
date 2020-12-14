@@ -24,7 +24,7 @@ class CartController extends AbstractController
         $command = $user->getOrdersByStatus(0);
 
         $item = new Item();
-        $item->setQuantity(1);
+        $item->setQuantity($data['quantity']);
         $item->setProduct($this->getDoctrine()->getRepository(Product::class)->findOneById($data['id']));
         $item->setCommand($command);
 

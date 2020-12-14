@@ -4,11 +4,30 @@
 
 {% block body %}
     <div class="col-12">
-        <h1>{{ product.name }} - {{ product.brand.name }} - {% if app.user %}<a class="btn btn-success" href="{{ path('front_add_to_cart',{'id': product.id} ) }}">Ajouter au panier</a>{% endif %}</h1>
+        <h1>{{ product.name }} - {{ product.brand.name }}</h1>
+        <div class="float-right">
+            {% if app.user %}
+                <div class="input-group mb-5">
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                      -
+                    </button>
+                    </span>
+                    <input type="text" name="quant[1]" class="form-control input-number quantity" value="1" min="1" max="10">
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                      +
+                    </button>
+                  </span>
+                    <button class="btn btn-success addToCart" data-id="{{ product.id }}">Ajouter</button>
+                </div>
+            {% endif %}
+        </div>
+        <p>
         {% for c in product.categories %}
-            <h2>{{ c.name }}</h2>
+            {{ c.name }}
         {% endfor %}
-        <button class="addToCart" data-id="{{ product.id }}">Ajouter</button>
+        </p>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="width:100%; height: 200px !important;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
