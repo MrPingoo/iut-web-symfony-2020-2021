@@ -11,6 +11,7 @@
                     <td>Date</td>
                     <td>Articles</td>
                     <td>Statut</td>
+                    <td>PDF</td>
                 </tr>
             </thead>
             {% for order in app.user.orders %}
@@ -19,6 +20,8 @@
                     <td>{{ order.cratedAt|date('d/m/Y H:i') }}</td>
                     <td>{{ order.items|length }}</td>
                     <td>{{ order.status  }}</td>
+                    <td><a href="{{ path('facture_download', {'id': order.id}) }}" class="">Télécharger</a></li>
+                    </td>
                 </tr>
 
             {% endfor %}

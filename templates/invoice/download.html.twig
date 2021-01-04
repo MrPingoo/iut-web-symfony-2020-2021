@@ -8,23 +8,32 @@
 
 </head>
 <body>
+    <h1>{{ order.user.firstname }} {{ order.user.lastname }}</h1>
     <table>
         <tr>
             <th>
-                Amount
-            </th>
-            <th>
                 Name
             </th>
+            <th>
+                Quantité
+            </th>
+            <th>
+                Amount
+            </th>
         </tr>
+        {% for item in order.items %}
         <tr>
             <td>
-                {{ facture.amount }}
+                {{ item.product.name }}
             </td>
             <td>
-                {{ facture.name }}
+                {{ item.quantity }}
+            </td>
+            <td>
+                {{ item.product.priceTTC }}
             </td>
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>
