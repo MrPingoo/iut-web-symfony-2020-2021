@@ -13,6 +13,7 @@
                         {% if app.user %}
                             <li><a href="{{ path('app_logout') }}" class="text-white">Logout</a></li>
                             <li><a href="{{ path('front_commands') }}" class="text-white">Mes commandes</a></li>
+                            <li><a href="{{ path('front_edit_profil') }}" class="text-white">Mes paramètres</a></li>
                         {% else %}
                             <li><a href="{{ path('app_register') }}" class="text-white">Créer un compte</a></li>
                             <li><a href="{{ path('app_login') }}" class="text-white">Se connecter</a></li>

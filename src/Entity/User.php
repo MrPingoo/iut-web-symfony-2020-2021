@@ -58,6 +58,16 @@ class User implements UserInterface
      */
     private $orders;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $billingAddress;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $shippingAddress;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
@@ -216,5 +226,29 @@ class User implements UserInterface
             }
         }
         return null;
+    }
+
+    public function getBillingAddress(): ?string
+    {
+        return $this->billingAddress;
+    }
+
+    public function setBillingAddress(?string $billingAddress): self
+    {
+        $this->billingAddress = $billingAddress;
+
+        return $this;
+    }
+
+    public function getShippingAddress(): ?string
+    {
+        return $this->shippingAddress;
+    }
+
+    public function setShippingAddress(?string $shippingAddress): self
+    {
+        $this->shippingAddress = $shippingAddress;
+
+        return $this;
     }
 }

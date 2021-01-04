@@ -3,6 +3,18 @@
 {% block body %}
     <h1>Mon panier</h1>
 
+    <div class="col-12 mb-5">
+        <p>
+            Adresse billing : {{ app.user.billingAddress }}
+        </p>
+        <p>
+            Adresse shipping : {{ app.user.shippingAddress }}
+        </p>
+        <p>
+            <a href="{{ path('front_edit_profil') }}" class="btn btn-success">Modifiier mes adresses</a>
+        </p>
+    </div>
+
     <table class="table">
         <thead>
         <tr>
