@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 23, 2020 at 02:54 PM
+-- Generation Time: Jan 04, 2021 at 08:05 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
@@ -69,6 +69,17 @@ CREATE TABLE `command` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `command`
+--
+
+INSERT INTO `command` (`id`, `user_id`, `crated_at`, `status`, `updated_at`) VALUES
+(1, 7, '2020-11-23 15:44:05', 0, '2020-11-23 15:44:05'),
+(2, 6, '2020-12-14 13:56:33', 1, '2020-12-14 13:56:33'),
+(3, 6, '2020-12-14 16:34:38', 1, '2020-12-14 16:34:38'),
+(4, 6, '2020-12-14 16:42:11', 1, '2020-12-14 16:42:11'),
+(5, 6, '2021-01-04 07:42:48', 0, '2021-01-04 07:42:48');
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +114,22 @@ CREATE TABLE `item` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`id`, `command_id`, `product_id`, `quantity`) VALUES
+(1, 1, 2, 1),
+(2, 1, 2, 1),
+(5, 2, 6, 1),
+(7, 2, 6, 1),
+(8, 2, 6, 6),
+(9, 2, 6, 4),
+(10, 2, 2, 3),
+(11, 3, 3, 2),
+(12, 4, 3, 1),
+(13, 5, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -221,7 +248,8 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `firstname`, `lastname`,
 (3, 'zozof@mailinator.com', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$vtt4tfGpZ1huwmHNElic1A$UQiOUAjV6mZG3lzT14jkWrKFU5IQ0qOGDh4DiCLoYSk', 'Wade', 'Robles', NULL),
 (4, 'xobyz@mailinator.com', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$eym3eJEEjAWQVKe7BHE6Kw$3tMs95iRDe5149tGb4oNpiJeEr70o6DIjyjeKxsT7lQ', 'Ishmael', 'Chambers', NULL),
 (5, 'xobyz2@mailinator.com', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$hiDX5v5gSTSSTg64I+lgLg$0eSrBmAEk0EuhlQZN8/7GEboeH39xJ+OxgQDj1y3VFM', 'Jean', 'Durmeson', NULL),
-(6, 'aaaa@google.com', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$qbgYjzAhC4ENqAAwzYOEYQ$5zhJw12Xh4IvBqSA2mG2NaHlZ16cg09WMRuSwgXHYSU', 'AAA', 'AAA', NULL);
+(6, 'aaaa@google.com', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$qbgYjzAhC4ENqAAwzYOEYQ$5zhJw12Xh4IvBqSA2mG2NaHlZ16cg09WMRuSwgXHYSU', 'AAA', 'AAA', 'cus_IZTBlzfhdApr6y'),
+(7, 'julian@codecodex.fr', '[]', '$argon2id$v=19$m=65536,t=4,p=1$PDAoiu27LqLcATc2mOGzMg$NZmSXv5xm9YOIfcKZSfOTAcF9OZrRFrQ6KI8cE5qhOY', 'julian', 'layen', NULL);
 
 --
 -- Indexes for dumped tables
@@ -316,13 +344,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `command`
 --
 ALTER TABLE `command`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -346,7 +374,7 @@ ALTER TABLE `sub_category`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
