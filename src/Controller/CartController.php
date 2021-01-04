@@ -9,6 +9,8 @@ use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -17,6 +19,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CartController extends AbstractController
 {
+    CONST SENDER = '2a21ae3246-201ee0@inbox.mailtrap.io';
+
     /**
      * @Route("/cart/add", name="cart.add")
      */
@@ -131,8 +135,24 @@ class CartController extends AbstractController
     /**
      * @Route("/cart/thanks/", name="cart.thanks")
      */
-    public function thanks(Request $request)
+    public function thanks(Request $request, MailerInterface $mailer)
     {
+        $user = $this->getUser();
+
+        $email = (new Email())
+            ->from(self::SENDER)
+            ->to($user->getEmail())
+            ->subject('Merci pour votre commande !')
+            ->html(
+                $this->renderView(
+                // templates/emails/registration.html.twig
+                    'emails/thanks.html.twig',
+                    ['user' => $user]
+                )
+            )
+        ;
+
+        $mailer->send($email);
 
         return $this->render('cart/thanks.html.twig');
     }

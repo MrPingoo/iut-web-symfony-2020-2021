@@ -1,0 +1,13 @@
+ {% trans_default_domain 'messages' %}
+{% block subject %}
+    {%- autoescape false -%}
+
+    {%- endautoescape -%}
+{% endblock %}
+
+{% block body_text %}
+{% endblock %}
+
+{% block body_html %}
+    Merci pour votre commande ! {{ user.firstname }}
+{% endblock %}
